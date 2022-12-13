@@ -1,9 +1,11 @@
 # Rohpate_IA626-Project
 # New-York Crime Analysis upon Graduation Outcomes
 
+# Dataset-1
 
-# Reading CSV - Crime
-Code:
+## Reading CSV - Crime
+
+### Code:
 
 import pandas as pd
 
@@ -15,7 +17,7 @@ dt
 
 ![image](https://user-images.githubusercontent.com/115191692/207200277-6dde3ff2-e17c-4dbd-809c-65e26f83f873.png)
 
-# Selecting only Arrests of Age group: 18-24
+## Selecting only Arrests of Age group: 18-24
 
 dt1=dt.loc[dt['AGE_GROUP'].isin(['18-24'])]
 
@@ -25,7 +27,7 @@ df1
 
 ![image](https://user-images.githubusercontent.com/115191692/207200948-c6565d28-9c0d-4717-9c46-e6f689e65e81.png)
 
-# Dropping unwanted columns and Selecting Particular time period
+## Dropping unwanted columns and Selecting Particular time period
 
 df1.drop(df1.columns[[2,4,6,7,8,9,10]], axis=1, inplace=True)
 
@@ -36,7 +38,7 @@ df1 = df1[(df1['ARREST_DATE'] > '2011-12-31') & (df1['ARREST_DATE'] <= '2014-12-
 ![image](https://user-images.githubusercontent.com/115191692/207202359-a5126763-26f5-4801-aacf-13819bcb1e89.png)
 
 
-# Assigning New Columns for further analysis
+## Assigning New Columns for further analysis
 
 df1['ARREST_YEAR']=df.ARREST_DATE.dt.strftime('%Y')
 
@@ -192,7 +194,9 @@ df1.drop(df1.columns[[3]], axis=1, inplace=True)
 
 ![image](https://user-images.githubusercontent.com/115191692/207205920-fa9648c1-6801-4614-ac6b-4070b157089b.png)
 
-# Reading CSV - Graduation Outcomes
+# Dataset-2
+
+## Reading CSV - Graduation Outcomes
 
 import pandas as pd
 
@@ -204,7 +208,7 @@ dt
 
 ![image](https://user-images.githubusercontent.com/115191692/207206189-e9ab1c87-2911-4fe3-b7f9-01cede09e54b.png)
 
-# Selecting data from a particular time period
+## Selecting data from a particular time period
 
 dt1 =dt.loc[ dt['Cohort Year'] >= 2012]
 
