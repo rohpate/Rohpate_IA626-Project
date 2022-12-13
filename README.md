@@ -190,7 +190,7 @@ df1.drop(df1.columns[[3]], axis=1, inplace=True)
 
 ![image](https://user-images.githubusercontent.com/115191692/207205920-fa9648c1-6801-4614-ac6b-4070b157089b.png)
 
-# Reading CSV - Graduatiion Outcomes
+# Reading CSV - Graduation Outcomes
 
 import pandas as pd
 
@@ -255,6 +255,86 @@ sns.heatmap(dt2.corr(), annot=True, linewidths=.5, fmt= '.1f',ax=ax)
 plt.show()
 
 ![image](https://user-images.githubusercontent.com/115191692/207208948-673b2202-5147-4cfe-98d9-5cf8d4c65b31.png)
+
+
+# Merging The datasets
+
+grad=dt2
+
+crime=df1
+
+grad.rename(columns = {'Cohort Year':'Year'}, inplace = True)
+
+crime.rename(columns = {'ARREST_YEAR':'Year'}, inplace = True)
+
+final=pd.merge(grad,crime,on=['Year'])
+
+final
+
+![image](https://user-images.githubusercontent.com/115191692/207212241-1540df55-f069-4859-a861-36e8320468a5.png)
+
+## Description Of Columns:
+1. District: District/County number
+2. Year: Year of Cohart/ Year of the arrest
+3. Total Cohort #: No. of students who entered into university for 4 year degree
+4. Total Grads #: No. of students Graduated
+5. Total Grads of Cohort%: percentage of cohort who graduated
+6. Total Regents #: No. of supervisors, who exercises general supervision over the conduct and welfare of the students.
+7. Total Regents % of Cohort: percentage of supervisor among Cohort
+8. Total Regents % of Grads:percentage of supervisor among Grads
+9. Dropped out #: Total no. of students dropped out
+10. Dropped out % of Cohort: Percentage of cohorts who dropped out
+11. ARREST_DATE: Date of arrest
+12. PD_DESC: Crime Description
+13. PERP_SEX: Sex of perp who commited crime
+14. PERP_RACE: Race of perp who commited crime
+15. Weekday: Day of arrest
+16. Day: Date of arrest
+17. Month: Month of arrest
+
+### Now, when the data is merged, the data can be visualized and lead us to conclusion.
+
+# Conclusion
+
+## Data Visualization:
+
+### The proportion idea of Grads, Dropouts and regents:
+
+
+![image](https://user-images.githubusercontent.com/115191692/207213398-edb18bf6-766e-4ca5-8cd6-e0e82e2ab39f.png)
+
+### The Average count of arrests per day decreases as the no. of drop-outs decrease across the years, which shows both the variables are collinear 
+
+![image](https://user-images.githubusercontent.com/115191692/207216285-63912bb1-b597-42cd-a4ad-641fde9da937.png)
+
+![image](https://user-images.githubusercontent.com/115191692/207222018-4ab4f12e-eae8-4aeb-bfdd-9614c9054e1c.png)
+
+
+### Sum of total no. of dropouts and count of crime description by arrest year and sex of prep
+
+![image](https://user-images.githubusercontent.com/115191692/207216495-a0d63c69-ed15-4489-92ae-27f218b75abe.png)
+
+### The Average count of arrests per day decreases as the no. of regents increase across the years, which shows both are inversely propotional to each other as the no. of superisors increases the crime decreases, as the student recieves proper advice and guidance for better future.
+
+![image](https://user-images.githubusercontent.com/115191692/207216630-de6fe85f-b535-4154-9c6d-934e4e12fd9d.png)
+
+### The Average count of arrests per day decreases as the no. of grads increase across the years, which shows both are inversely propotional to each other, the graduates get a proper scope for future, which leads decrease in crime.
+
+![image](https://user-images.githubusercontent.com/115191692/207221904-da051b5a-f6ab-4b8d-a424-3dc8f5cd2c9b.png)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
